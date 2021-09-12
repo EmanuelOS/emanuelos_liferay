@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import resources.Strings;
 
 import static org.junit.Assert.assertEquals;
-import static resources.Strings.*;
 
 
 public class TestCaseEmptyFieldsNameBirthReason {
@@ -20,7 +19,15 @@ public class TestCaseEmptyFieldsNameBirthReason {
     private static WebDriverWait wait;
 
     @Test
-    public void testCaseEmptyFieldsNameBirthReason() throws InterruptedException {
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 2000);
+        new TestCaseEmptyFieldsNameBirthReason().testCaseEmptyFieldsNameBirthReason();
+    }
+
+    @Test
+    public void testCaseEmptyFieldsNameBirthReason() {
         openForm();
         initialSetup();
         stepOne();
@@ -50,13 +57,13 @@ public class TestCaseEmptyFieldsNameBirthReason {
     }
 
     @Test
-    private void stepOne() throws InterruptedException {
+    private void stepOne() {
         enterValidReason();
     }
 
     private void enterValidReason() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathReasonField)));
-        driver.findElement(By.xpath(xpathReasonField)).sendKeys(validReason);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Strings.xpathReasonField)));
+        driver.findElement(By.xpath(Strings.xpathReasonField)).sendKeys(Strings.validReason);
     }
 
     private void stepTwo() {
@@ -83,20 +90,12 @@ public class TestCaseEmptyFieldsNameBirthReason {
 
     @Test
     private void verifyAlerts(String formSubmitted, String formSubmittedSuccessfully) {
-        assertEquals(requiredInformationSent, formSubmitted);
-        assertEquals(requiredInformationSentSuccessfully, formSubmittedSuccessfully);
+        assertEquals(Strings.requiredInformationSent, formSubmitted);
+        assertEquals(Strings.requiredInformationSentSuccessfully, formSubmittedSuccessfully);
     }
 
     private void closeWebDrive() {
         driver.quit();
-    }
-
-    @Test
-    public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 2000);
-        new TestCaseEmptyFieldsNameBirthReason().testCaseEmptyFieldsNameBirthReason();
     }
 
 }

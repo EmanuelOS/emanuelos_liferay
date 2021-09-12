@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import resources.Strings;
 
 import static org.junit.Assert.assertEquals;
-import static resources.Strings.requiredFieldEnUs;
 
 
 public class TestCaseEmptyFieldsName {
@@ -20,7 +19,7 @@ public class TestCaseEmptyFieldsName {
     private static WebDriverWait wait;
 
     @Test
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 2000);
@@ -75,8 +74,8 @@ public class TestCaseEmptyFieldsName {
 
     @Test
     private void verifyAlerts(String dateBirthRequired, String reasonsRequired) {
-        assertEquals(requiredFieldEnUs, dateBirthRequired);
-        assertEquals(requiredFieldEnUs, reasonsRequired);
+        assertEquals(Strings.requiredFieldEnUs, dateBirthRequired);
+        assertEquals(Strings.requiredFieldEnUs, reasonsRequired);
     }
 
     private void closeWebDrive() {

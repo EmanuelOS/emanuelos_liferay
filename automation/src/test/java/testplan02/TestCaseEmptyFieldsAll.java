@@ -19,7 +19,7 @@ public class TestCaseEmptyFieldsAll {
     private static WebDriverWait wait;
 
     @Test
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 2000);

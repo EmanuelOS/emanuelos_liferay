@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import resources.Strings;
 
 import static org.junit.Assert.assertEquals;
-import static resources.Strings.requiredFieldEnUs;
 
 
 public class TestCaseEmptyFieldsNameBirth {
@@ -28,7 +27,7 @@ public class TestCaseEmptyFieldsNameBirth {
     }
 
     @Test
-    public void testCaseEmptyFieldsNameBirth() throws InterruptedException {
+    public void testCaseEmptyFieldsNameBirth() {
         openForm();
         initialSetup();
         stepOne();
@@ -51,7 +50,7 @@ public class TestCaseEmptyFieldsNameBirth {
     }
 
     @Test
-    private void stepOne() throws InterruptedException {
+    private void stepOne() {
         enterValidDateOfBirth();
     }
 
@@ -83,7 +82,7 @@ public class TestCaseEmptyFieldsNameBirth {
 
     @Test
     private void verifyAlerts(String reasonsRequired) {
-        assertEquals(requiredFieldEnUs, reasonsRequired);
+        assertEquals(Strings.requiredFieldEnUs, reasonsRequired);
     }
 
     private void closeWebDrive() {
